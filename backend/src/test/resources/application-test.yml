@@ -1,0 +1,8 @@
+# test profile: in-memory H2 (fresh for every run), no dev seed.
+spring:
+  datasource:
+    url: jdbc:h2:mem:ejudiciary_test;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH;DB_CLOSE_DELAY=-1
+    username: sa
+    password: ""
+  flyway:
+    locations: classpath:db/migration
