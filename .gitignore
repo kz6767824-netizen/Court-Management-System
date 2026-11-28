@@ -1,0 +1,32 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.iml
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+frontend/*.tsbuildinfo
+npm-debug.log*
+
+# Backend (Maven / Java)
+backend/target/
+*.class
+*.log
+*.jar
+!backend/.mvn/wrapper/*.jar
+
+# Local databases (H2 dev files)
+*.mv.db
+*.trace.db
+backend/data/
+
+# Secrets
+.env
+*.pem
+application-local.yml

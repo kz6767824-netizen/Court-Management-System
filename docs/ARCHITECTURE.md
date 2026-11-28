@@ -11,7 +11,7 @@ If documents disagree, the Deliverable 5 design class diagram wins. Use cases de
 - DB: H2 (file mode) for `dev` and tests, PostgreSQL for `prod`. SQL must run on both (plain ANSI only)
 - Frontend: React + Vite + TypeScript in /frontend, talks to backend via REST/JSON
 - Tests: JUnit 5, Spring Boot Test, MockMvc
-- Deploy (last wave): backend Docker on Render/Railway, Postgres on Neon/Supabase, frontend on Vercel
+- Deploy (last wave): backend on Railway/Render (Dockerfile only if the host requires it), Postgres on Neon/Supabase, frontend on Vercel. Docker is not needed for local development.
 
 Note: the proposal said Swing/JavaFX + Oracle. We use web + Postgres so it can be deployed. The layered
 design (controller → service → repository → DB) from Deliverable 5 is kept unchanged.
@@ -131,7 +131,7 @@ CREATE TABLE cause_list_entry (
   sequence_number INT NOT NULL
 );
 ```
-Flyway version ranges (avoid collisions): c2 V1–V9, k1 V10–V19, c3 V20–V29, k2 V30–V39, k3 V40–V49.
+Flyway version ranges (avoid collisions): c2 V1–V9, k1 V10–V19, c3 V20–V39 (seed data is V30), spare V40+.
 Never edit a merged migration; add a new one.
 
 ## 4. API contract (JSON, base path /api, JWT in `Authorization: Bearer <token>`)
