@@ -1,0 +1,12 @@
+# dev profile: H2 file database, runs the dev-only seed location as well.
+spring:
+  datasource:
+    url: jdbc:h2:file:./data/ejudiciary;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH
+    username: sa
+    password: ""
+  flyway:
+    # db/dev holds dev-only migrations such as V30__seed_demo_data.sql (k2)
+    locations: classpath:db/migration,classpath:db/dev
+  h2:
+    console:
+      enabled: false

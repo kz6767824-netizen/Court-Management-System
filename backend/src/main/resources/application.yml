@@ -1,0 +1,22 @@
+# Common settings for every profile. Profile-specific values live in application-<profile>.yml.
+spring:
+  application:
+    name: ejudiciary-backend
+  profiles:
+    default: dev
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate        # Flyway owns the schema; Hibernate only checks it matches
+    properties:
+      hibernate:
+        format_sql: false
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+server:
+  port: 8080
+
+app:
+  timezone: Asia/Karachi        # used by the Clock bean (ARCHITECTURE.md section 7)
